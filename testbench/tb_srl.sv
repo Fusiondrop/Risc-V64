@@ -10,5 +10,8 @@ module tb_srl();
         dataIn = 16'b0000_0001_0000_0000; amount = 4'b0100; #10;
         $display("Test 1: %b >> %b by %d", dataIn, DataOut, amount);
 
+        dataIn = 16'b0000_0000_0000_1000; amount = 4'b0100; #10;
+        $display("Test 1: %b >> %b by %d", dataIn, DataOut, amount);
+
     end
 endmodule

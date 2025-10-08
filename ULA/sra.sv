@@ -1,7 +1,7 @@
 module sra #(parameter N = 16
 )(
-    input   logic [N-1:0]           dataIn,
     input   logic [$clog2(N)-1:0]   shift_amount,
+    input   logic [N-1:0]           dataIn,
     output  logic [N-1:0]           dataOut
 );
 

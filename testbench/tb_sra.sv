@@ -5,7 +5,7 @@ module tb_sra();
     logic [$clog2(N)-1:0] amount;
 
 
-    sra DUT(dataIn, amount,DataOut);
+    sra DUT(amount, dataIn, DataOut);
     initial begin
         dataIn = 16'b1000_0001_0000_0000; amount = 4'b0100; #10;
         $display("Test 1: %b >> %b by %d", dataIn, DataOut, amount);

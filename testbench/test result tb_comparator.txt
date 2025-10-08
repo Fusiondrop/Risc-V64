@@ -1,12 +1,17 @@
-Teste1: A=  4 B=  4 -> gt=0 lt=0 eq=1
-Teste2: A=  4 B=  2 -> gt=1 lt=0 eq=0
-Teste3: A=  2 B=  4 -> gt=0 lt=1 eq=0
-Teste4: A= 32 B= 32 -> gt=0 lt=0 eq=1
-Teste5: A= 64 B= 32 -> gt=1 lt=0 eq=0
-Teste6: A= 32 B= 64 -> gt=0 lt=1 eq=0
-Teste7: A= 32 B=  8 -> gt=1 lt=0 eq=0
-Teste8: A= 32 B=  8 -> gt=1 lt=0 eq=0
-Teste9: A=  8 B= 32 -> gt=0 lt=1 eq=0
+Teste1: A=  4 B=  4 D=0-> gt=0 lt=0 eq=1
+Teste2: A=  4 B=  2 D=0-> gt=1 lt=0 eq=0
+Teste3: A=  2 B=  4 D=0-> gt=0 lt=1 eq=0
+Teste4: A= 32 B= 32 D=0-> gt=0 lt=0 eq=1
+Teste5: A= 64 B= 32 D=0-> gt=1 lt=0 eq=0
+Teste6: A= 32 B= 64 D=0-> gt=0 lt=1 eq=0
+Teste7: A=  32 B=   8 D=1-> gt=1 lt=0 eq=0
+Teste8: A=  89 B=  57 D=1-> gt=1 lt=0 eq=0
+Teste9: A=-127 B=   1 D=1-> gt=0 lt=1 eq=0
+Teste10: A=-128 B=  -1 D=1-> gt=0 lt=1 eq=0
+Teste11: A= 64 B=  8 D=0-> gt=1 lt=0 eq=0
+Teste12: A=  8 B= 64 D=0-> gt=0 lt=1 eq=0
+Teste13: A= -64 B=   8 D=1-> gt=0 lt=1 eq=0
+Teste14: A=-120 B=  64 D=1-> gt=0 lt=1 eq=0
 - S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
-- Verilator: end at 90ps; walltime 0.000 s; speed 126.846 ns/s
+- Verilator: end at 140ps; walltime 0.001 s; speed 120.526 ns/s
 - Verilator: cpu 0.001 s on 1 threads; alloced 25 MB

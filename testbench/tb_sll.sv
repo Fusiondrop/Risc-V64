@@ -10,5 +10,8 @@ module tb_sll();
         dataIn = 16'b0000_0000_0001_0000; amount = 4'b0100; #10;
         $display("Test 1: %b << %b by %d", dataIn, DataOut, amount);
 
+        dataIn = 16'b1000_0000_0001_0000; amount = 4'b0100; #10;
+        $display("Test 2: %b << %b by %d", dataIn, DataOut, amount);
+
     end
 endmodule

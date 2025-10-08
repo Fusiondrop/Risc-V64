@@ -12,15 +12,15 @@ module rippleSubAdder #(
     wire [N-1:0] carry;
 
 
-    mux2_1 mux0(
-        .d0(A[0]),
-        .d1(~A[0]),
+    mux2_1 #(.N(1)) mux0(
+        .d0(B[0]),
+        .d1(~B[0]),
         .sel(D),
         .y(y_mux[0])
     );
     fullAdder fa0(
-        .a(y_mux[0]),
-        .b(B[0]),
+        .a(A[0]),
+        .b(y_mux[0]),
         .cin(D),
         .s(S[0]),
         .cout(carry[0])
@@ -29,15 +29,15 @@ module rippleSubAdder #(
     genvar i;
     generate
         for(i = 1; i < N; i++) begin: full_adder_chain
-            mux2_1 mux(
-                .d0(A[i]),
-                .d1(~A[i]),
+            mux2_1 #(.N(1)) mux(
+                .d0(B[i]),
+                .d1(~B[i]),
                 .sel(D),
                 .y(y_mux[i])
             );
             fullAdder fa(
-                .a(y_mux[i]),
-                .b(B[i]),
+                .a(A[i]),
+                .b(y_mux[i]),
                 .cin(carry[i-1]),
                 .s(S[i]),
                 .cout(carry[i])
@@ -52,13 +52,5 @@ module fullAdder(input logic a, b, cin,
 
     assign s = a^b^cin;
     assign cout = (a & b) | (b & cin) | (a & cin);
-
-endmodule
-
-module mux2_1(input  logic d0, d1,
-              input  logic sel,
-              output logic y);
-
-  assign y = sel ? d1:d0;
 
 endmodule
