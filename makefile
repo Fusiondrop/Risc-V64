@@ -2,9 +2,9 @@ TOOL_COMP = verilator
 VERILATOR_FLAGS = --binary --timing
 
 NEANDER_RV64I = \
-	./Datapath/LSU/LSU.sv
+	./Datapath/LSU/LoadExtender.sv \
 
-TESTBENCH = ./testbench/tb_lsu.sv
+TESTBENCH = ./testbench/tb_LoadExtender.sv
 
 all:
 	$(TOOL_COMP) $(VERILATOR_FLAGS) $(NEANDER_RV64I) $(TESTBENCH)

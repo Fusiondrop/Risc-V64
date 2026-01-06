@@ -1,16 +1,26 @@
-[PASS] IDLE
-[PASS] INVALID load&&store
-[PASS] STORE SB aligned (off=3)
-[PASS] STORE SH aligned (off=2)
-[PASS] STORE SW aligned (off=4)
-[PASS] STORE SD aligned (off=0)
-[PASS] STORE SH misaligned (off=1)
-[PASS] LOAD LWU aligned (off=4)
-[PASS] LOAD LW misaligned (off=2)
-[PASS] LOAD LD misaligned (off=4)
+==== Teste 1: SD (store doubleword) ====
+Teste 1 PASS
 
-ALL LSU TESTS PASSED
-- testbench/tb_lsu.sv:254: Verilog $finish
+==== Teste 2: SB (store byte) addr=2 (offset=2) ====
+Teste 2 PASS
+
+==== Teste 3: SW (store word) addr=0 ====
+Teste 3 PASS
+
+==== Teste 3b: SH (store halfword) addr=0 ====
+Teste 3b PASS
+
+==== Teste 4: Misaligned STORE (SW addr=2) deve gerar excecao e NAO escrever ====
+Teste 4 PASS
+
+==== Teste 5: Misaligned LOAD (LW addr=2) deve gerar excecao ====
+Teste 5 PASS
+
+==== Teste 6: Aligned LOAD (LW addr=4) NAO deve gerar excecao ====
+Teste 6 PASS
+
+==== TODOS OS TESTES LSU FINALIZADOS ====
+- testbench/tb_lsu.sv:203: Verilog $finish
 - S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
-- Verilator: $finish at 11ps; walltime 0.000 s; speed 20.738 ns/s
+- Verilator: $finish at 50ps; walltime 0.001 s; speed 76.571 ns/s
 - Verilator: cpu 0.001 s on 1 threads; alloced 25 MB

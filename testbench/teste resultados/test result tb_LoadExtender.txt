@@ -1,0 +1,34 @@
+==== LB ====
+[PASS] LB offset0 (0x9A -> sign)
+[PASS] LB offset7 (0x80 -> sign)
+
+==== LBU ====
+[PASS] LBU offset0 (0x9A -> zero)
+[PASS] LBU offset5 (0xFF -> zero)
+
+==== LH ====
+[PASS] LH offset0 (0x569A -> sign+)
+[PASS] LH offset6 (0x807F -> sign-)
+
+==== LHU ====
+[PASS] LHU offset6 (0x807F -> zero)
+
+==== LW ====
+[PASS] LW offset0 (0x1234569A -> sign+)
+[PASS] LW offset4 (0x807FFF00 -> sign-)
+
+==== LWU ====
+[PASS] LWU offset4 (0x807FFF00 -> zero)
+
+==== LD ====
+[PASS] LD offset0 (full word)
+[PASS] LD offset3 (>>24)
+
+==== DEFAULT ====
+[PASS] default -> 0
+
+ALL LoadExtender TESTS PASSED
+- testbench/tb_LoadExtender.sv:205: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.037 devel
+- Verilator: $finish at 14ps; walltime 0.000 s; speed 25.506 ns/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 25 MB
