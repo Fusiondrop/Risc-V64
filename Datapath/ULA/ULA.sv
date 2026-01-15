@@ -23,9 +23,9 @@ module ULA #(
 
     rippleSubAdder #(.N(N)) c0(.A(dataA), .B(dataB), .D(ALUControl[3]), .S(adder_out), .Cout(adder_carry_out));
     comparator     #(.N(N)) c1(.A(dataA), .B(dataB), .D(~ALUControl[0]), .gt(unused_gt), .lt(comp_lt_1bit), .eq(unused_eq));
-        // zeroExtender #(.N(N)) ext_gt(.in(comp_gt_1bit), .ALUOut(comp_gt));
-        ZeroExtender #(.N(N)) ext_lt(.in(comp_lt_1bit), .out(comp_lt));
-        // zeroExtender #(.N(N)) ext_eq(.in(comp_eq_1bit), .ALUOut(comp_eq));
+        // zeroExtender #(.IN(1), .OUT(N)) ext_gt(.in(comp_gt_1bit), .ALUOut(comp_gt));
+        ZeroExtender #(.IN(1), .OUT(N)) ext_lt(.in(comp_lt_1bit), .out(comp_lt));
+        // zeroExtender #(.IN(1), .OUT(N)) ext_eq(.in(comp_eq_1bit), .ALUOut(comp_eq));
     sll            #(.N(N)) c2(.shift_amount(dataB[SHIFT_BITS-1:0]), .dataIn(dataA), .dataOut(sll_out));
     srl            #(.N(N)) c3(.shift_amount(dataB[SHIFT_BITS-1:0]), .dataIn(dataA), .dataOut(srl_out));
     sra            #(.N(N)) c4(.shift_amount(dataB[SHIFT_BITS-1:0]), .dataIn(dataA), .dataOut(sra_out));

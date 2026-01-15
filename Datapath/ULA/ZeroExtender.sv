@@ -1,8 +1,9 @@
 module ZeroExtender #(
-    parameter N = 4
+    parameter IN  = 32,
+    parameter OUT = 64
 )(
-    input   logic in,           // 1 bit de entrada da flag de condição do comparador
-    output  logic [N-1:0] out   // Saída N de acordo com o tamanho da saída do comparador
+    input  logic [IN-1:0]  in, // Barramento de entrada selecionável
+    output logic [OUT-1:0] out // Barramento de saída extendidos
 );
-    assign out = { {(N-1){1'b0}}, in}; // replicação e concatenação
+    assign out = {{(OUT-IN){1'b0}}, in}; // Replicação e concatenação de zeros com o barramento de entrada
 endmodule

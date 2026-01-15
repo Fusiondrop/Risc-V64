@@ -1,4 +1,4 @@
-module SignExtender #(
+module ImmGenerator #(
     parameter N = 64
 )(
     input  logic [31:0]  instr,  // instrução completa
