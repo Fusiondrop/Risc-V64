@@ -87,7 +87,7 @@ module ULA #(
     // Saída final
     assign ALUOut = word ? word_out64 : ALU_mux_out;
 
-    // Flags (você usa para branch na UC). Para word=1, Carry/Overflow não devem influenciar nada.
+    // Flags (você usa para branch na Unit Controller). Para word=1, Carry/Overflow não devem influenciar nada.
     wire is_adder;
     assign is_adder = (ALUControl[2:0] == 3'b000); // ADD e SUB (1000) caem aqui
 
