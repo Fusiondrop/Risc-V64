@@ -39,5 +39,8 @@ TESTBENCH = ./testbench/tb_top.sv
 all:
 	$(TOOL_COMP) $(VERILATOR_FLAGS) $(CONTROL_UNIT) $(GENERIC_SRCS) $(DATAPATH) $(TOP_LEVEL) $(TESTBENCH)
 
+processor:
+	$(TOOL_COMP) --binary --timing --top-module tb_processor $(GENERIC_SRCS) $(DATAPATH) $(CONTROL_UNIT) ./testbench/tb_processor.sv
+
 clean:
 	rm -rf obj_dir
