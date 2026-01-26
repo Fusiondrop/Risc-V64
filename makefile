@@ -1,14 +1,14 @@
 TOOL_COMP = verilator
-VERILATOR_FLAGS = --binary --timing --top-module tb_controlunit
+VERILATOR_FLAGS = --binary --timing --top-module tb_top
 
 GENERIC_SRCS = \
 	./Generic_components/mux2.sv \
 	./Generic_components/mux3.sv \
-	./Generic_components/mux4.sv
+	./Generic_components/mux4.sv \
+	./Generic_components/SignExtender.sv \
+	./Generic_components/ZeroExtender.sv
 
 DATAPATH = \
-	./Datapath/ULA/ZeroExtender.sv \
-	./Datapath/ULA/SignExtender.sv \
 	./Datapath/ULA/srl.sv \
 	./Datapath/ULA/sra.sv \
 	./Datapath/ULA/sll.sv \
@@ -28,10 +28,16 @@ DATAPATH = \
 CONTROL_UNIT = \
 	./ControlUnit/ControlUnit.sv
 
-TESTBENCH = ./testbench/tb_controlunit.sv
+TOP_LEVEL = \
+	./TopLevel.sv
+
+PROGRAM_HEX = \
+	./program.hex
+
+TESTBENCH = ./testbench/tb_top.sv
 
 all:
-	$(TOOL_COMP) $(VERILATOR_FLAGS) $(CONTROL_UNIT) $(TESTBENCH)
+	$(TOOL_COMP) $(VERILATOR_FLAGS) $(CONTROL_UNIT) $(GENERIC_SRCS) $(DATAPATH) $(TOP_LEVEL) $(TESTBENCH)
 
 clean:
 	rm -rf obj_dir
